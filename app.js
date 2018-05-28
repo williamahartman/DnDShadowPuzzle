@@ -75,7 +75,7 @@ function init() {
         shape.name = 'shape';
         shape.scale.multiplyScalar(0.15);
         shape.position.set(0, -2, 0);
-        shape.rotation.y = 2.95;
+        shape.rotation.set(0, 2.95, 0);
         shape.castShadow = true;
         roomScene.add(shape);
         stuffScene.add(shape.clone());
@@ -196,16 +196,25 @@ function setLightPosition(t) {
     pedestal.position.z = t;
 }
 
-function setShapeOrientation(x, y, z) {
-    var shape = roomScene.getObjectByName('shape');
-    var shape2 = stuffScene.getObjectByName('shape');
-    if (shape) {
-        if (x) { shape.rotation.x = x; }
-        if (y) { shape.rotation.y = y; }
-        if (z) { shape.rotation.z = z; }
-        if (x) { shape2.rotation.x = x; }
-        if (y) { shape2.rotation.y = y; }
-        if (z) { shape2.rotation.z = z; }
+function setShapeXRot(x) {
+    mainShape = roomScene.getObjectByName('shape');
+    stuffShape = stuffScene.getObjectByName('shape');
+
+    if(mainShape && stuffShape) {
+        shapeRot = mainShape.rotation.clone();
+        mainShape.rotation.set(x, shapeRot.y, shapeRot.z);
+        stuffShape.rotation.set(x, shapeRot.y, shapeRot.z);
+    }
+}
+
+function setShapeZRot(z) {
+    mainShape = roomScene.getObjectByName('shape');
+    stuffShape = stuffScene.getObjectByName('shape');
+
+    if(mainShape && stuffShape) {
+        shapeRot = mainShape.rotation.clone();
+        mainShape.rotation.set(shapeRot.x, shapeRot.y, z);
+        stuffShape.rotation.set(shapeRot.x, shapeRot.y, z);
     }
 }
 

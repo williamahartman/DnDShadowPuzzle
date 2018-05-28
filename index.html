@@ -20,9 +20,8 @@
     <div style="color:white; display:flex; flex-direction:row; padding: 12px">
       <div style="width: 300px;">Dodecahedron Orientation:</div>
       <div style="display:flex; flex-direction:column;">
-        <input id="x" type="range" value="0" min="1" max="6.283185307179586" style="margin: 2px;" step="0.000001" oninput="setShapeOrientation(this.value, null, null)">
-        <!-- <input id="y" type="range" value="0" min="-3.141592653589793" max="3.141592653589793" style="margin: 2px;" step="0.000001" oninput="setShapeOrientation(null, this.value, null)"> -->
-        <input id="z" type="range" value="0" min="1" max="6.283185307179586" style="margin: 2px;" step="0.000001" oninput="setShapeOrientation(null, null, this.value)">
+        <input id="x" type="range" value="0" min="0" max="6.283185307179586" style="margin: 2px;" step="0.000001" oninput="setShapeXRot(this.value)">
+        <input id="z" type="range" value="0" min="0" max="6.283185307179586" style="margin: 2px;" step="0.000001" oninput="setShapeZRot(this.value)">
       </div>
     </div>
     <div style="color: white; display:flex; flex-direction:row; padding: 12px">
